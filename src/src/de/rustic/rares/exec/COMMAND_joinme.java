@@ -1,5 +1,6 @@
 package de.rustic.rares.exec;
 
+import de.rustic.rares.cord.Map_Utils;
 import de.rustic.rares.mysql.Utils;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -7,6 +8,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
+import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,11 +27,19 @@ public class COMMAND_joinme extends Command {
 
 
                     try {
-                        for(String a : Utils.getMessage(pp)) {
-                            TextComponent tc = new TextComponent(insert(a, "§", 2));
-                            p.sendMessage(tc.getText() + "\n");
+                        String[][] msg = Utils.getMessage(pp);
+                        for(int x = 1; x <= 8; x++){
+                           String m = "";
+                            for(int y = 1; y <= 8; y++){
+                                m += msg[x -1][y- 1];
+
+                            }
+                            pp.sendMessage(insert(m, "§", 2) +  "\n");
 
                         }
+
+
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

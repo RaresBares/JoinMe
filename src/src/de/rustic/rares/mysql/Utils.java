@@ -11,7 +11,6 @@ import java.awt.image.BufferedImage;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -99,22 +98,25 @@ public class Utils {
     }
 
 
-    public static ArrayList<String> getMessage(ProxiedPlayer pp) throws Exception {
+    public static String[][] getMessage(ProxiedPlayer pp) throws Exception {
 
 
         URL url = new URL("https://crafatar.com/avatars/" + pp.getUUID().toString().replace("-", ""));
         BufferedImage bi = ImageIO.read(url);
-        ArrayList<String> msg = new ArrayList<>();
-        String[][] msg =
-        for(int x = 1; x <= bi.getWidth(); x++){
-            for(int y = 1; y <= bi.getHeight(); y++){
-                Color m = new Color(bi.getRGB(x- 1, y -1));
-                cmsg += "§" + Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "█";
 
+        String[][] msg = new String[8][8];
+        System.out.println("                     " + bi.getWidth() * bi.getHeight());
+        for(int x = 0; x < (bi.getWidth()); x += 20){
+            for(int y = 0; y < (bi.getHeight()); y += 20){
+                Color m = new Color(bi.getRGB(x , y ));
+                msg[(x -1)/20][(y -1)/20] =  Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "█";
+                System.out.println("x:" + x+ " | " + "y:" + y);
             }
-            msg.add(cmsg);
-            cmsg = "";
+
+
         }
+
+
 
         return msg;
     }
