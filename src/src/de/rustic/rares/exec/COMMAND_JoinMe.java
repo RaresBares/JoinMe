@@ -37,13 +37,13 @@ public class COMMAND_JoinMe extends Command {
                             m = "§" + insert(m, "§", 2);
 
                             if (x == 3) {
-                                m += "§7   " + pp.getName() + " §espielt auf";
+                                m += " §7" + pp.getName() + " §espielt auf";
                             }
                             if (x == 4) {
-                                m += "§a   " + pp.getServer().getInfo().getName();
+                                m += " §a" + pp.getServer().getInfo().getName();
                             }
                             if (x == 6) {
-                                m += "  §aKlick um zu joinen!";
+                                m += " §aKlick um zu joinen!";
                             }
                             m += " ";
 
@@ -53,8 +53,8 @@ public class COMMAND_JoinMe extends Command {
                             tc.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/goto " + key));
                             TextComponent[] texts = new TextComponent[3];
                             texts[0] = new TextComponent("§aServer: §e" + pp.getServer().getInfo().getName() + "\n");
-                            texts[1] = new TextComponent("§aPlayers: §e" + pp.getServer().getInfo().getPlayers() + "\n");
-                            texts[2] = new TextComponent("§aAdresse: §e" + pp.getServer().getInfo().getAddress());
+                            texts[1] = new TextComponent("§aPlayers: §e" + pp.getServer().getInfo().getPlayers().size() + "\n");
+                            texts[2] = new TextComponent("§aAdresse: §e" + pp.getServer().getInfo().getAddress().getHostName());
                             tc.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, texts));
                             tc.setText(tc.getText().replace("r", ""));
                             p.sendMessage(tc);
@@ -62,7 +62,7 @@ public class COMMAND_JoinMe extends Command {
 
                         }
                         p.sendMessage("§7§m<-------------------------------------->");
-
+                    Utils.setToken(pp, Utils.getTokens(pp) -1);
 
                     } catch (Exception e) {
                         e.printStackTrace();

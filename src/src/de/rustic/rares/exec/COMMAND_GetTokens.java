@@ -13,13 +13,13 @@ public class COMMAND_GetTokens extends Command {
 
     @Override
     public void execute(CommandSender commandSender, String[] strings) {
-        ProxiedPlayer pp = ProxyServer.getInstance().getPlayer(strings[0]);
+        ProxiedPlayer pp;
         if (commandSender.hasPermission("tokens.get") || commandSender.hasPermission("*")) {
             if (strings.length == 1) {
-
+                pp = ProxyServer.getInstance().getPlayer(strings[0]);
                 if (pp != null) {
                     try {
-                        commandSender.sendMessage(Utils.getTokens(pp) + "");
+                        commandSender.sendMessage("§a Der Spieler §e" + pp.getName() + "§a hat §8" + Utils.getTokens(pp.getUniqueId())+ " §aTokens");
 
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -27,11 +27,24 @@ public class COMMAND_GetTokens extends Command {
                 } else {
                     pp.sendMessage("§c Der Spieler ist nicht online/existiert nicht");
                 }
-            } else {
-                pp.sendMessage("§c Bitte benutze /settokens [Spieler] [Zahl]");
+            } else if(strings.length == 0){
+               pp = (ProxiedPlayer) commandSender;
+
+                if (pp != null) {
+                    try {
+                        commandSender.sendMessage("§a Der Spieler §e" + pp.getName() + "§a hat §8" + Utils.getTokens(pp.getUniqueId())+ " §aTokens");
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    commandSender.sendMessage("§c Der Spieler ist nicht online/existiert nicht");
+                }
+            }else{
+                commandSender.sendMessage("§c Bitte benutze /settokens [Spieler] [Zahl]");
             }
         } else {
-            pp.sendMessage("§c Du hast dazu keine Rechte");
+            commandSender.sendMessage("§c Du hast dazu keine Rechte");
         }
     }
 }
