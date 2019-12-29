@@ -24,7 +24,7 @@ public class JoinMe extends Plugin {
 
         Map_Utils.init();
 
-        File f = new File("./joinme.property");
+        File f = new File("./plugins/JoinMe.properties");
         try {
             f.createNewFile();
             InputStream is = new FileInputStream(f);
