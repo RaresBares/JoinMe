@@ -26,6 +26,7 @@ public class JoinMe extends Plugin {
     public void onEnable(){
         Map_Utils.init();
         try {
+
             MySQL.connect("localhost", "mein", "root","");
             MySQL.CreateTable();
         } catch (Exception e) {

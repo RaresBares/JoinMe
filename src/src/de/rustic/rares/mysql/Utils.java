@@ -44,7 +44,7 @@ public class Utils {
             ResultSet rs = preparedStmt.executeQuery();
 
             while (rs.next()) {
-                System.out.println("hey" + rs.getInt("TOKENS"));
+
                 return rs.getInt("TOKENS");
 
             }
@@ -109,8 +109,8 @@ public class Utils {
         for(int x = 0; x < (bi.getWidth()); x += 20){
             for(int y = 0; y < (bi.getHeight()); y += 20){
                 Color m = new Color(bi.getRGB(x , y ));
-                msg[(x -1)/20][(y -1)/20] =  Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "█";
-                System.out.println("x:" + x+ " | " + "y:" + y);
+                msg[(x -1)/20][(y -1)/20] =  Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "▓";
+
             }
 
 

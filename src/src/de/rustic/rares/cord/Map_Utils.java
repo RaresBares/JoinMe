@@ -1,30 +1,32 @@
 package de.rustic.rares.cord;
 
+
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 
 public class Map_Utils {
 
-    public static HashMap<Coordinate, ColorCodes> content = new HashMap<Coordinate, ColorCodes>();
+    public static HashMap<MyPoint, ColorCodes> content = new HashMap<MyPoint, ColorCodes>();
 
     public static void init(){
 
      for(ColorCodes c : ColorCodes.values()){
-         Coordinate cord = new Coordinate(c.r,c.g,c.b);
-         content.put(cord, c);
+
+         content.put(new MyPoint(c.r,c.g,c.b), c);
+
      }
 
 
     }
 
     public static String RoundColor(int r,int g,int b){
-        Coordinate cord = new Coordinate(r,g,b);
+        MyPoint p1 = new MyPoint(r,g,b);
         ArrayList<Double> dists = new ArrayList<>();
-        HashMap <Double, Coordinate> cords = new HashMap<>();
-        for(Coordinate c : content.keySet()){
-            double dist = cord.getDistance(c);
-
+        HashMap <Double, MyPoint> cords = new HashMap<>();
+        for(MyPoint c : content.keySet()){
+            double dist = p1.distance(c);
             dists.add(dist);
             cords.put(dist, c);
         }
@@ -37,7 +39,7 @@ public class Map_Utils {
         });
 
 
-        Coordinate c =cords.get(dists.get(0));
+        MyPoint c = cords.get(dists.get(0));
         return "" + content.get(c).getC();
     }
 

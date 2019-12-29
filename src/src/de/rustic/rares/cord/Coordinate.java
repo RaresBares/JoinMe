@@ -40,9 +40,11 @@ public class Coordinate {
 
     public double getDistance(Coordinate c){
 
-        double xy = Math.sqrt(((pos(c.x - x))^2 + (pos(c.x - x))^2));
+        double xy = Math.sqrt(((pos(c.x - x))^2 + (pos(y - y))^2));
         double dif = Math.sqrt(xy*xy + (pos(c.z - z)* pos(c.z - z)));
+        System.out.println(dif);
         return pos(dif);
+
     }
     public static int pos(int a){
         if(a < 0){
