@@ -108,8 +108,9 @@ public class Utils {
         System.out.println("                     " + bi.getWidth() * bi.getHeight());
         for(int x = 0; x < (bi.getWidth()); x += 20){
             for(int y = 0; y < (bi.getHeight()); y += 20){
+                System.out.println("x: " + x +"y: " + y);
                 Color m = new Color(bi.getRGB(x , y ));
-                msg[(x -1)/20][(y -1)/20] =  Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "▓";
+                msg[(x )/20][(y )/20] =  Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "▓";
 
             }
 

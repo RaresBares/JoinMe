@@ -32,13 +32,14 @@ public class COMMAND_joinme extends Command {
                     try {
                         p.sendMessage("§7§m<-------------------------------------->");
                         String[][] msg = Utils.getMessage(pp);
-                        for(int x = 1; x < 8; x++){
+                        for(int x = 1; x <= 8; x++){
                            String m = "";
-                            for(int y = 1; y < 8; y++){
+                            for(int y = 1; y <= 8; y++){
                                 m += msg[y -1][x- 1];
 
                             }
                             m = "§" + insert(m, "§", 2);
+
                             if(x == 3){
                                 m += " §7" + pp.getName() + " §espielt auf";
                             }
@@ -48,8 +49,10 @@ public class COMMAND_joinme extends Command {
                             if(x==6){
                                 m += " §aKlick um zu joinen!" ;
                             }
-                            m.replace("r", "");
-                            TextComponent tc = new TextComponent(m);
+                            m += "";
+
+                            TextComponent tc = new TextComponent(m.replace("r", ""));
+
                             String key = Utils.setnewEntry(pp);
                             tc.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/goto " + key));
                             TextComponent[] texts = new TextComponent[3];
@@ -61,7 +64,7 @@ public class COMMAND_joinme extends Command {
 
 
                         }
-                        p.sendMessage("§7&m<-------------------------------------->");
+                        p.sendMessage("§7§m<-------------------------------------->");
 
 
 
