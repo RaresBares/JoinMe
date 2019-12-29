@@ -1,0 +1,10 @@
+name: TestPlugin
+main: de.rustic.rares.joinme.JoinMe
+version: 1.0
+author: username
+
+commands:
+    joinme:
+    gettokens:
+    settokens:
+    goto:
