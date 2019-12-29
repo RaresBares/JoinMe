@@ -2,12 +2,12 @@ package de.rustic.rares.Threads;
 
 import de.rustic.rares.mysql.Utils;
 
-public class MyThread extends Thread{
+public class MyThread extends Thread {
 
     public String b;
 
     @Override
-    public void run(){
+    public void run() {
 
         try {
             sleep(60000);
@@ -17,7 +17,6 @@ public class MyThread extends Thread{
         }
 
     }
-
 
 
 }

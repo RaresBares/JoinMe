@@ -13,9 +13,10 @@ public class COMMAND_SetTokens extends Command {
 
     @Override
     public void execute(CommandSender commandSender, String[] strings) {
-        if (commandSender.hasPermission("tokens.set")) {
+        ProxiedPlayer pp = ProxyServer.getInstance().getPlayer(strings[0]);
+        if (commandSender.hasPermission("tokens.set")|| commandSender.hasPermission("*")) {
             if (strings.length == 2) {
-                ProxiedPlayer pp = ProxyServer.getInstance().getPlayer(strings[0]);
+
                 if (pp != null) {
                     try {
                         Utils.setToken(pp, Integer.parseInt(strings[1]));
@@ -23,11 +24,13 @@ public class COMMAND_SetTokens extends Command {
                         e.printStackTrace();
                     }
                 } else {
-
+                    pp.sendMessage("§c Der Spieler ist nicht online/existiert nicht");
                 }
+            } else {
+                pp.sendMessage("§c Bitte benutze /settokens [Spieler] [Zahl]");
             }
-        }else{
-
+        } else {
+            pp.sendMessage("§c Du hast dazu keine Rechte");
         }
     }
 }

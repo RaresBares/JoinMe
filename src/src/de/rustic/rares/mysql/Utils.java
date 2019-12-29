@@ -37,6 +37,23 @@ public class Utils {
         }
     }
 
+    public static boolean HasEnoughTokens(UUID u) {
+
+        try {
+
+
+            if (getTokens(u) > 0) {
+
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static Integer getTokens(ProxiedPlayer pp) throws Exception {
         if (userexists(pp)) {
             PreparedStatement preparedStmt = con.prepareStatement("SELECT * FROM JoinMe WHERE UUID = ?");
@@ -56,9 +73,35 @@ public class Utils {
 
     }
 
+    public static Integer getTokens(UUID u) throws Exception {
+        if (userexists(u)) {
+            PreparedStatement preparedStmt = con.prepareStatement("SELECT * FROM JoinMe WHERE UUID = ?");
+            preparedStmt.setString(1, u.toString());
+            ResultSet rs = preparedStmt.executeQuery();
+
+            while (rs.next()) {
+
+                return rs.getInt("TOKENS");
+
+            }
+            return -1;
+        } else {
+            setToken(u, 0);
+            return 0;
+        }
+
+    }
+
     public static boolean userexists(ProxiedPlayer pp) throws Exception {
         PreparedStatement preparedStmt = con.prepareStatement("SELECT * FROM JoinMe WHERE UUID = ?");
         preparedStmt.setString(1, pp.getUniqueId().toString());
+        ResultSet rs = preparedStmt.executeQuery();
+        return rs.next();
+    }
+
+    public static boolean userexists(UUID u) throws Exception {
+        PreparedStatement preparedStmt = con.prepareStatement("SELECT * FROM JoinMe WHERE UUID = ?");
+        preparedStmt.setString(1, u.toString());
         ResultSet rs = preparedStmt.executeQuery();
         return rs.next();
     }
@@ -72,6 +115,22 @@ public class Utils {
         } else {
             PreparedStatement preparedStmt = con.prepareStatement("UPDATE JoinMe SET TOKENS = ? WHERE UUID = ?");
             preparedStmt.setString(2, pp.getUniqueId().toString());
+            preparedStmt.setInt(1, i);
+            preparedStmt.executeUpdate();
+        }
+
+
+    }
+
+    public static void setToken(UUID u, int i) throws Exception {
+        if (!userexists(u)) {
+            PreparedStatement preparedStmt = con.prepareStatement("INSERT INTO JoinMe (UUID, TOKENS) VALUES (?,?)");
+            preparedStmt.setString(1, u.toString());
+            preparedStmt.setInt(2, i);
+            preparedStmt.executeUpdate();
+        } else {
+            PreparedStatement preparedStmt = con.prepareStatement("UPDATE JoinMe SET TOKENS = ? WHERE UUID = ?");
+            preparedStmt.setString(2, u.toString());
             preparedStmt.setInt(1, i);
             preparedStmt.executeUpdate();
         }
@@ -105,18 +164,16 @@ public class Utils {
         BufferedImage bi = ImageIO.read(url);
 
         String[][] msg = new String[8][8];
-        System.out.println("                     " + bi.getWidth() * bi.getHeight());
-        for(int x = 0; x < (bi.getWidth()); x += 20){
-            for(int y = 0; y < (bi.getHeight()); y += 20){
-                System.out.println("x: " + x +"y: " + y);
-                Color m = new Color(bi.getRGB(x , y ));
-                msg[(x )/20][(y )/20] =  Map_Utils.RoundColor(m.getRed(),m.getGreen(),m.getBlue()) + "▓";
+
+        for (int x = 0; x < (bi.getWidth()); x += 20) {
+            for (int y = 0; y < (bi.getHeight()); y += 20) {
+                Color m = new Color(bi.getRGB(x, y));
+                msg[(x) / 20][(y) / 20] = Map_Utils.RoundColor(m.getRed(), m.getGreen(), m.getBlue()) + "▓";
 
             }
 
 
         }
-
 
 
         return msg;

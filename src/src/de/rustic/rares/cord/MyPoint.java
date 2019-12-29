@@ -1,12 +1,7 @@
 package de.rustic.rares.cord;
 
 
-
-
-
-
-
-public class MyPoint{
+public class MyPoint {
 
 
     public static final MyPoint ZERO = new MyPoint(0.0, 0.0, 0.0);
@@ -53,7 +48,7 @@ public class MyPoint{
     }
 
 
-    public double distance(MyPoint  point) {
+    public double distance(MyPoint point) {
         return distance(point.getX(), point.getY(), point.getZ());
     }
 
@@ -70,7 +65,7 @@ public class MyPoint{
         return add(point.getX(), point.getY(), point.getZ());
     }
 
-public MyPoint subtract(double x, double y, double z) {
+    public MyPoint subtract(double x, double y, double z) {
         return new MyPoint(
                 getX() - x,
                 getY() - y,
@@ -197,7 +192,8 @@ public MyPoint subtract(double x, double y, double z) {
         return crossProduct(vector.getX(), vector.getY(), vector.getZ());
     }
 
-    @Override public boolean equals(Object obj) {
+    @Override
+    public boolean equals(Object obj) {
         if (obj == this) return true;
         if (obj instanceof MyPoint) {
             MyPoint other = (MyPoint) obj;
@@ -206,7 +202,8 @@ public MyPoint subtract(double x, double y, double z) {
     }
 
 
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
         if (hash == 0) {
             long bits = 7L;
             bits = 31L * bits + Double.doubleToLongBits(getX());
@@ -218,7 +215,8 @@ public MyPoint subtract(double x, double y, double z) {
     }
 
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "MyPoint [x = " + getX() + ", y = " + getY() + ", z = " + getZ() + "]";
     }
 }
