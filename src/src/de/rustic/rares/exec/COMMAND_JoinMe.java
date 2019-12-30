@@ -62,21 +62,29 @@ public class COMMAND_JoinMe extends Command {
 
                         }
                         p.sendMessage("§7§m<-------------------------------------->");
-                    Utils.setToken(pp, Utils.getTokens(pp) -1);
+
 
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     String key = Utils.setnewEntry(pp);
-                    if (key != null) {
 
 
-                    }
-
+                }
+                int tokens = 0;
+                try {
+                    tokens = Utils.getTokens(pp);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
+                    Utils.setToken(pp, tokens -1);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } else {
                 try {
-                    pp.sendMessage("§c Du hast nicht genug Tokens!(Deine Tokens: " + Utils.getTokens(pp) + ")");
+                    pp.sendMessage("§c Du hast nicht genug Tokens! (Deine Tokens: " + Utils.getTokens(pp) + ")");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
