@@ -1,12 +1,12 @@
-package de.rustic.rares.joinme;
+package de.joinme.rares.joinme;
 
 
-import de.rustic.rares.cord.Map_Utils;
-import de.rustic.rares.exec.COMMAND_GetTokens;
-import de.rustic.rares.exec.COMMAND_SetTokens;
-import de.rustic.rares.exec.COMMAND_GoTo;
-import de.rustic.rares.exec.COMMAND_JoinMe;
-import de.rustic.rares.mysql.MySQL;
+import de.joinme.rares.cord.Map_Utils;
+import de.joinme.rares.exec.COMMAND_GetTokens;
+import de.joinme.rares.exec.COMMAND_SetTokens;
+import de.joinme.rares.exec.COMMAND_GoTo;
+import de.joinme.rares.exec.COMMAND_JoinMe;
+import de.joinme.rares.mysql.MySQL;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 import java.io.*;

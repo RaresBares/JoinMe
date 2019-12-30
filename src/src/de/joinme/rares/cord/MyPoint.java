@@ -1,4 +1,4 @@
-package de.rustic.rares.cord;
+package de.joinme.rares.cord;
 
 
 public class MyPoint {

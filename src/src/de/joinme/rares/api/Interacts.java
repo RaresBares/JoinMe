@@ -1,7 +1,6 @@
-package de.rustic.rares.api;
+package de.joinme.rares.api;
 
-import de.rustic.rares.mysql.Utils;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
+import de.joinme.rares.mysql.Utils;
 
 import java.util.UUID;
 

@@ -1,4 +1,4 @@
-package de.rustic.rares.mysql;
+package de.joinme.rares.mysql;
 
 import com.mojang.authlib.GameProfile;
 import javafx.beans.property.Property;

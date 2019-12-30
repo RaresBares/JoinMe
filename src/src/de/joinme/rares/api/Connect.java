@@ -1,6 +1,6 @@
-package de.rustic.rares.api;
+package de.joinme.rares.api;
 
-import de.rustic.rares.mysql.MySQL;
+import de.joinme.rares.mysql.MySQL;
 
 public class Connect {
 

@@ -1,4 +1,4 @@
-package de.rustic.rares.cord;
+package de.joinme.rares.cord;
 
 public enum ColorCodes {
     GREEN_SOFT(85, 255, 85, "a"), BRAUN(165, 96, 36, "0"), BLUE_SOFT(85, 255, 255, "b"), BLUE(0, 0, 170, "1"), RED_SOFT(255, 85, 85, "c"), GREEN(0, 170, 0, "2"),

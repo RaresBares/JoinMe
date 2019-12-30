@@ -1,5 +1,5 @@
 name: TestPlugin
-main: de.rustic.rares.joinme.JoinMe
+main: JoinMe
 version: 1.0
 author: username
 

@@ -1,6 +1,6 @@
-package de.rustic.rares.exec;
+package de.joinme.rares.exec;
 
-import de.rustic.rares.mysql.Utils;
+import de.joinme.rares.mysql.Utils;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.ClickEvent;

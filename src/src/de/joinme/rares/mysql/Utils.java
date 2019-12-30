@@ -1,7 +1,7 @@
-package de.rustic.rares.mysql;
+package de.joinme.rares.mysql;
 
-import de.rustic.rares.Threads.MyThread;
-import de.rustic.rares.cord.Map_Utils;
+import de.joinme.rares.Threads.MyThread;
+import de.joinme.rares.cord.Map_Utils;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.UUID;
 
-import static de.rustic.rares.mysql.MySQL.con;
+import static de.joinme.rares.mysql.MySQL.con;
 
 public class Utils {
 

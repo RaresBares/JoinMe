@@ -1,6 +1,6 @@
-package de.rustic.rares.Threads;
+package de.joinme.rares.Threads;
 
-import de.rustic.rares.mysql.Utils;
+import de.joinme.rares.mysql.Utils;
 
 public class MyThread extends Thread {
 
