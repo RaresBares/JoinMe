@@ -1,7 +1,7 @@
-name: TestPlugin
-main: JoinMe
+name: JoinMe
+main: de.joinme.rares.joinme.JoinMe
 version: 1.0
-author: username
+author: rares
 
 commands:
     joinme:
